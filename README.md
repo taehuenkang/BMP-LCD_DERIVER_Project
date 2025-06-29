@@ -20,3 +20,46 @@ STM32_liveCoding
 | 통신 방식 | I²C (7-bit 주소: 0x77 / 8-bit 주소: 0xEE) |
 | 사용 언어 | C |
 | 주요 기능 | 보정 데이터 추출, 온도 및 압력 계산, 실시간 표시 함수 구현 |
+
+
+
+
+---
+
+## 🌡️ `BMP_LCD_Driver_Project`
+
+```markdown
+# 🌡️ BMP180 + LCD1602 Driver – STM32 HAL 기반 드라이버 설계
+
+An embedded system that reads real-time temperature/pressure from BMP180 and displays it on a 1602 LCD.
+
+---
+
+## 🔧 Setup Overview
+
+| Component  | Detail                        |
+|------------|-------------------------------|
+| MCU        | STM32F4                       |
+| Sensor     | BMP180 (I2C)                  |
+| Display    | LCD1602 (HD44780, 4bit GPIO)  |
+| Interface  | I2C, GPIO, UART               |
+| Toolchain  | STM32CubeIDE + HAL            |
+| Language   | C                             |
+
+---
+
+## 📦 Features
+
+- EEPROM 보정값 추출 → Bosch 공식 기반 연산
+- 4bit LCD 초기화 시퀀스 직접 구현 (EN, RS, D4~D7)
+- UART로 디버깅 메시지 출력
+- Logic Analyzer로 타이밍 검증
+
+---
+
+## 🧪 Data Flow
+
+```txt
+BMP180 → I2C Read → 보정식 적용 → LCD 출력 (1초 간격)
+                         ↓
+                    UART Debug Print
