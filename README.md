@@ -56,6 +56,19 @@ An embedded system that reads real-time temperature/pressure from BMP180 and dis
 - Logic Analyzer로 타이밍 검증
 
 ---
+📸 Display Example
+makefile
+복사
+편집
+Temp: 22.4 °C
+Press: 958.81 hPa
+🛠️ Build & Flash
+Open project in STM32CubeIDE
+
+Flash to STM32F4 board
+
+Use UART monitor (baud 9600) to check logs
+
 
 ## 🧪 Data Flow
 
